@@ -13,17 +13,31 @@ These processed and valuable opals get distributed by Tiffany.
 - [pipenv](https://pipenv.pypa.io/en/latest/)
 - [postman](https://www.postman.com/downloads/) optional
 
+## 1.1.1. Start application
+
+**Local approach**
+<br>
+If you want to run the backend server in a local environment using pipenv, change to the project directory and run:
+
 ```shellscript
-git clone <>
 pipenv install
 cd carbonChallenge && python manage.py migrate && python manage.py init_usage_types
+```
+
+**Container approach**
+<br>
+Assuming you want to run the server in a docker container, just run:
+
+```shellscript
+docker build -t carbon_challenge .
+docker run --rm -d -p 8000:8000 carbon_challenge
 ```
 
 Congrats! the carbonChallenge backend should now be up and running :ok_hand:
 <br>
 <br>
 
-**Creating users and run application**
+## 1.1.2. Creating users and run application
 
 To actually use the app you'll want to create at least one user. To do so, there are several ways.<br>
 To create a simple user:
