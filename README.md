@@ -106,7 +106,31 @@ Actually the django user model to easily support user creation and password hand
 | unit   | string |
 | factor | float  |
 
-## 1.3. Tests
+## 1.3. Sorting & Filtering
+
+By default, usage objects are ordered by the field "usage_at" in descending order.
+<br>
+To change the default behavior, provide the URL query parameter "sorting".<br>
+Examples:
+
+- ...?sorting=amount will order usages by amount ascending<br>
+- ...?sorting=-amount will order usages by amount descending<br>
+  <br>
+
+Filtering can be done by just using the model fields:
+
+- amount
+- usage_at
+- usage_type
+- user
+
+To filter by date range, pass the two URL query parameter "time_range_from" and "time_range_to".<br>
+Examples:
+
+- ...?time_range_from=2021-08-01&time_range_to=2021-08-31<br>
+  <br>
+
+## 1.4. Tests
 
 To run the test cases and get a coverage report, just run:
 
@@ -115,7 +139,7 @@ coverage run --source='.' manage.py test
 coverage report
 ```
 
-## 1.4. Further notes
+## 1.5. Further notes
 
 Implementation took about 5 hour, including postman and readme.
 <br>

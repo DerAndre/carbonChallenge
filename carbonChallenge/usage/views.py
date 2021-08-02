@@ -16,9 +16,23 @@ class UsageViewSet(viewsets.ModelViewSet):
     serializer_class = UsageSerializer
 
     def get_queryset(self):
+        def _time_range_filter(request):
+            return request.query_params.get(
+                'time_range_from') is not None and\
+                request.query_params.get('time_range_to') is not None
+
         if self.request.user.is_staff:
-            Usage.objects.all()
-        return self.request.user.usage_set.all()
+            queryset = Usage.objects.all()
+        queryset = self.request.user.usage_set.all()
+        if _time_range_filter(self.request):
+            range_from = self.request.query_params.get('time_range_from')
+            range_to = self.request.query_params.get('time_range_to')
+            queryset = queryset.filter(
+                usage_at__gte=range_from, usage_at__lte=range_to)
+        if self.request.query_params.get('sorting'):
+            sorting = self.request.query_params.get('sorting')
+            queryset = queryset.order_by(sorting)
+        return queryset
 
     def create(self, request):
         request.data['user'] = request.user.pk

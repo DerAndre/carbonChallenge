@@ -18,6 +18,7 @@ class Usage(models.Model):
     class Meta:
         verbose_name = 'Usage'
         verbose_name_plural = 'Usages'
+        ordering = ['-usage_at']
 
 
 class UsageType(models.Model):
