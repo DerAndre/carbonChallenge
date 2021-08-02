@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "482f8956-4d90-4732-a1ee-01c92ac4d60e",
+		"name": "carbonChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testUser\",\n    \"password\": \"testUsersPassword!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/auth/users/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testUser\",\n    \"password\": \"testUsersPassword!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/auth/jwt/create/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"jwt",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List usage types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve usage type",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage_type/1/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage_type",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usage_type\": 1,\n    \"amount\": 100,\n    \"usage_at\": \"2021-08-02T20:50\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage/1/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usage_type\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage/1/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usage_type\": 3,\n    \"amount\": 200,\n    \"usage_at\": \"2021-08-02T20:54:00Z\",\n    \"user\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage/1/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI3OTMxNzQ5LCJqdGkiOiI3MjVjNjhjOWE2YWE0YTAyOGVmNTUxYzFkNWZjNTJmNSIsInVzZXJfaWQiOjV9.cyqNJETCdKwoXcgPZxq7aNs_bs_eMwBEaQTmOLT0Z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/usage/1/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usage",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
