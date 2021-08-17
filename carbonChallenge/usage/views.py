@@ -23,7 +23,8 @@ class UsageViewSet(viewsets.ModelViewSet):
 
         if self.request.user.is_staff:
             queryset = Usage.objects.all()
-        queryset = self.request.user.usage_set.all()
+        else:
+            queryset = self.request.user.usage_set.all()
         if _time_range_filter(self.request):
             range_from = self.request.query_params.get('time_range_from')
             range_to = self.request.query_params.get('time_range_to')
